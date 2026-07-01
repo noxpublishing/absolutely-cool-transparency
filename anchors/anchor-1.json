@@ -1,0 +1,12 @@
+{
+  "entry_count": 5,
+  "from_integrity_id": 1,
+  "id": 1,
+  "merkle_root": "\\x0c3c1017f5071770a2286c966c9706eca82b0129674afc3f8e3342023f8f63cd",
+  "mod_count": 0,
+  "mod_from_id": null,
+  "mod_to_id": null,
+  "stamped_at": "2026-07-01T16:33:55.435806+00:00",
+  "stamped_digest": "\\x0c3c1017f5071770a2286c966c9706eca82b0129674afc3f8e3342023f8f63cd",
+  "to_integrity_id": 5
+}

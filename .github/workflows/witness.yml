@@ -1,0 +1,25 @@
+name: witness
+on:
+  schedule:
+    - cron: "23 5 * * *" # täglich — bezeugt neue Anker append-only
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  witness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Anker bezeugen (Tamper-Alarm bei Abweichung)
+        run: node witness.mjs
+      - name: Commit
+        run: |
+          git config user.name "witness-bot"
+          git config user.email "actions@github.com"
+          git add anchors
+          git diff --cached --quiet || { git commit -m "witness: neue Anker bezeugt"; git push; }
